@@ -1,11 +1,18 @@
-package main
+package test
 
 import (
 	"flag"
 	"fmt"
+	"os"
+	"testing"
 )
 
-func main() {
+func TestXXX(t *testing.T) {
+	fmt.Println("测试用例成功执行")
+	t.Log("XXXX")
+}
+
+func TestFlag(t *testing.T) {
 	//输入示例
 	//go run .\flag.go -loginName xiaowencheng -logPwd=7896542 -age 12 --married=true --delay=1h30m fdafdfad fdadfadfa fafadfadf
 	// Args := flag.Args()
@@ -33,4 +40,12 @@ func main() {
 	fmt.Printf("参数个数有 %d ,参数内容为：%v \n", count, args)
 	//返回使用的命令行参数个数
 	fmt.Println(countFlag)
+}
+
+func TestOsPackage(t *testing.T) {
+	args := os.Args
+	fmt.Println("获得所有输入的参数列表xx。。。。。")
+	for index, value := range args {
+		fmt.Printf("%d ----- %v\n", index, value)
+	}
 }
